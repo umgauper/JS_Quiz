@@ -1,0 +1,25 @@
+//
+   Created by una on 3/26/15.
+extends layout
+
+block content
+   div(ng-controller='quizController')
+      //h1 {{questionSets}} works
+      h1 {{ questionSets[i].question }}
+         ul
+            //did not use ng-repeat here because of difficulty using ng-value to force check previously stored answers
+            li {{questionSets[i].answers[0]}}
+            input(name='choice' type='radio' value='0')
+            li {{questionSets[i].answers[1]}}
+            input(name='choice' type='radio' value='1')
+            li {{questionSets[i].answers[2]}}
+            input(name='choice' type='radio' value='2')
+            li {{questionSets[i].answers[3]}}
+            input(name='choice' type='radio' value='3')
+
+         button.prev(ng-class="{'vis-hidden': i === 0}" ng-click='prev()') PREV
+         button.next(ng-show='i !== questionSets.length;' ng-click='next()') NEXT
+         button.calculate(ng-show='i  === questionSets.length' ng-click='calculateScore()') Calculate
+         p#error Choose an answer!
+         h1#score {{score}}
+
