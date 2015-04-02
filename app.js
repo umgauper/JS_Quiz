@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var configDB = require('./config/database.js');
 
-mongoose.connect(configDB.url);
+mongoose.createConnection(configDB.url);
 
 var passport = require('passport');
 var session = require('express-session');
@@ -42,15 +42,14 @@ app.set('view engine', 'jade');
 
 var routes = require('./routes/index');
 var quiz = require('./routes/quiz');
-var data = require('./routes/data');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var profile = require('./routes/profile');
 var signup = require('./routes/signup');
 
+
 app.use('/', routes);
 app.use('/quiz', quiz);
-app.use('/data', data);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/signup', signup);

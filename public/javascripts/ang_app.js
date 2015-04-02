@@ -1,8 +1,8 @@
 var app = angular.module('ang_app', [])
     .controller('quizController', ['$scope', '$http', function($scope, $http) {
 
-        $http.get('/data').success(function(data) { //get the questionSets
-            $scope.questionSets = data.questionSets;
+        $http.get('https://api.mongolab.com/api/1/databases/quiz_question_sets/collections/questionSets?apiKey=iMg3sLxSc8OjLTCX7C3f_bEQse5TL74o').success(function(data) {
+            $scope.questionSets = data
         });
 
         var answers = {};
