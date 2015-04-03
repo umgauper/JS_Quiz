@@ -9,8 +9,6 @@ var app = angular.module('ang_app', [])
 
         $scope.i = 0;   //TODO: maybe? on score page show chosen answer and correct answers?
 
-
-
         function updateAnswers() {
             answers[$scope.i] = $('input:checked').val();
         }
@@ -26,6 +24,7 @@ var app = angular.module('ang_app', [])
         }
 
         $scope.calculateScore = function() {
+            updateAnswers();
             $scope.score = 0;
             var userAnswers = [];
             for(var answer in answers) {
