@@ -17,7 +17,7 @@ block content
                li {{questionSets[i].answers[3]}}
                input(name='choice' type='radio' value='3')
 
-         button.prev(ng-class="{'vis-hidden': i === 0}" ng-click='prev()') PREV
+         button.prev(ng-class="{'vis-hidden': i === 0 || i === questionSets.length}" ng-click='prev()') PREV
          button.next(ng-show='i < questionSets.length-1;' ng-click='next()') NEXT
          button.calculate(ng-show='i  === questionSets.length-1' ng-click='calculateScore()') Calculate
          p#error Choose an answer!

@@ -7,7 +7,6 @@ var app = angular.module('ang_app', [])
 
         var answers = {};
 
-        $scope.i = 0;   //TODO: maybe? on score page show chosen answer and correct answers?
 
         function updateAnswers() {
             answers[$scope.i] = $('input:checked').val();
@@ -16,33 +15,39 @@ var app = angular.module('ang_app', [])
         function loadStoredAnswer() {
             $('input:checked').prop('checked', false);
             if(answers[$scope.i]) { // If there is a value for the current answer,
-
                 var ans = answers[$scope.i];
                 var radio = "input[value='" + ans + "']";
                 $(radio).prop('checked', true); //check the corresponding radio button.
             }
         }
 
-        $scope.calculateScore = function() {
-            updateAnswers();
-            $scope.score = 0;
-            var userAnswers = [];
-            for(var answer in answers) {
-                userAnswers.push(answers[answer]);
-            }
+        $scope.i = 0;   //TODO: maybe? on score page show chosen answer and correct answers?
 
-            for(var j=0; j<$scope.questionSets.length; j++) {
-                if( userAnswers[j] == $scope.questionSets[j].correctAnswer) {
-                    $scope.score++;
+        $scope.calculateScore = function() {
+            if ($('input:checked').val()) {
+                updateAnswers();
+                $scope.score = 0; // reset the score each time Calculate button is clicked
+                var userAnswers = [];
+                for(var answer in answers) {
+                    userAnswers.push(answers[answer]);
                 }
+
+                for(var j=0; j<$scope.questionSets.length; j++) {
+                    if( userAnswers[j] == $scope.questionSets[j].correctAnswer) { // check if user answer matches the correct answer
+                        $scope.score++;
+                    }
+                }
+                $scope.i++;
+            } else {
+                $('#error').show();
             }
-            alert($scope.score);
        };
 
 
         $scope.next = function() {
 
-            if ( $('input:checked').val() ) {
+            if ( $('input:checked').val() ) { // validates that the user has chosen an answer
+                $('#error').hide();
                 updateAnswers();
                 if($scope.i < $scope.questionSets.length) {
                     $scope.i++;
@@ -50,17 +55,15 @@ var app = angular.module('ang_app', [])
                 }
 
             } else {
-                $('#error').show();
+                $('#error').show(); // if no answer is chosen, show error message
             }
         };
 
         $scope.prev = function() {
-
+            $('#error').hide();
             if($scope.i > 0) {
                 $scope.i--;
                 loadStoredAnswer();
             }
         };
-
     }]);
-//try putting data into a separate route, that sends JSON data when there's a get request...see last answer here: http://stackoverflow.com/questions/15009664/accessing-get-variable-in-angular-function
