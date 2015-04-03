@@ -4,22 +4,27 @@ extends layout
 
 block content
    div.container(ng-controller='quizController')
-      div.col-sm-6.col-offset-6
-         h1(ng-show="i < questionSets.length") {{ questionSets[i].question }} {{questionSets[i].correctAnswer}}
-            ul(ng-show="i < questionSets.length")
+      div.col-sm-6.col-sm-offset-3
+         div.form
+            h3.question(ng-show="i < questionSets.length") {{ questionSets[i].question }}
+            div.answers(ng-show="i < questionSets.length")
                //did not use ng-repeat here because of difficulty using ng-value to force check previously stored answers
-               li {{questionSets[i].answers[0]}}
-               input(name='choice' type='radio' value='0')
-               li {{questionSets[i].answers[1]}}
-               input(name='choice' type='radio' value='1')
-               li {{questionSets[i].answers[2]}}
-               input(name='choice' type='radio' value='2')
-               li {{questionSets[i].answers[3]}}
-               input(name='choice' type='radio' value='3')
+               div.form-group
+                  input(name='choice' type='radio' value='0')
+                  label {{questionSets[i].answers[0]}}
+               div.form-group
+                  input(name='choice' type='radio' value='1')
+                  label {{questionSets[i].answers[1]}}
+               div.form-group
+                  input(name='choice' type='radio' value='2')
+                  label {{questionSets[i].answers[2]}}
+               div.form-group
+                  input(name='choice' type='radio' value='3')
+                  label {{questionSets[i].answers[3]}}
 
-         button.prev(ng-class="{'vis-hidden': i === 0 || i === questionSets.length}" ng-click='prev()') PREV
-         button.next(ng-show='i < questionSets.length-1;' ng-click='next()') NEXT
-         button.calculate(ng-show='i  === questionSets.length-1' ng-click='calculateScore()') Calculate
+         button.btn.btn-success.prev(ng-class="{'vis-hidden': i === 0 || i === questionSets.length}" ng-click='prev()') PREV
+         button.btn.btn-success(ng-show='i < questionSets.length-1;' ng-click='next()') NEXT
+         button.btn.btn-info.calculate(ng-show='i  === questionSets.length-1' ng-click='calculateScore()') CALCULATE
          p#error Choose an answer!
          h1#score {{score}}
 
