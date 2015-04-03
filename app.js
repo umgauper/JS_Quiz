@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var configDB = require('./config/database.js');
 
-mongoose.createConnection(configDB.url);
+mongoose.connect(configDB.url);
 
 var passport = require('passport');
 var session = require('express-session');
