@@ -15,3 +15,11 @@ a {
 .vis-hidden {
   visibility: hidden;
 }
+
+h3.question {
+  height: 50px;
+}
+
+input[type="radio"] {
+  margin-right: 10px !important;
+}

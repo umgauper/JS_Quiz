@@ -38,6 +38,8 @@ var app = angular.module('ang_app', [])
                     }
                 }
                 $scope.i++;
+
+                //TODO: add writing the score to the database ... do an app.post?? how to organize?? is username stored as a cookie when user logs in? with express-session??
             } else {
                 $('#error').show();
             }
