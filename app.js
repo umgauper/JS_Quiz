@@ -14,13 +14,9 @@ var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
 
-
 require('./config/passport')(passport);
 
 // configuration ====================================================================================================================================================================================================
-
-
-
 
 app.use(favicon());
 app.use(logger('dev'));

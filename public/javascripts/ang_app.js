@@ -43,7 +43,6 @@ var app = angular.module('ang_app', [])
             }
        };
 
-
         $scope.next = function() {
 
             if ( $('input:checked').val() ) { // validates that the user has chosen an answer
