@@ -6,7 +6,7 @@ block content
    div.container(ng-controller='quizController')
       div.col-sm-6.col-sm-offset-3
          div.form
-            h3.question(ng-show="i < questionSets.length") {{ questionSets[i].question }}
+            h4.question(ng-show="i < questionSets.length") {{ questionSets[i].question }}
             div.answers(ng-show="i < questionSets.length")
                //did not use ng-repeat here because of difficulty using ng-value to force check previously stored answers
                div.form-group
