@@ -1,7 +1,8 @@
 var app = angular.module('ang_app', [])
     .controller('quizController', ['$scope', '$http', function($scope, $http) {
+        var url = 'https://api.mongolab.com/api/1/databases/quiz_question_sets/collections/questionSets?apiKey=iMg3sLxSc8OjLTCX7C3f_bEQse5TL74o';
 
-        $http.get('https://api.mongolab.com/api/1/databases/quiz_question_sets/collections/questionSets?apiKey=iMg3sLxSc8OjLTCX7C3f_bEQse5TL74o').success(function(data) {
+        $http.get(url).success(function(data) { // Add error handling for  when database connection doesn't work!
             $scope.questionSets = data
         });
 
