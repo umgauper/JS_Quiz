@@ -1,3 +1,4 @@
+// code from https://scotch.io/tutorials/easy-node-authenticat ion-setup-and-local
 // config/passport.js
 
 // load all the things we need

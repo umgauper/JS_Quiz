@@ -7,8 +7,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var configDB = require('./config/database.js');
+var mongo = require('mongoskin');
 
-mongoose.connect(configDB.url);
+var db = mongo.db(configDB.url); // so db is accessible to the quiz users ... This is awkward, change so there's only one connection to the quiz_users db?
+
+mongoose.connect(configDB.url); // for user signup and login
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 
 var passport = require('passport');
 var session = require('express-session');
@@ -42,7 +51,7 @@ var login = require('./routes/login');
 var logout = require('./routes/logout');
 var profile = require('./routes/profile');
 var signup = require('./routes/signup');
-
+var updateScore = require('./routes/updateScore');
 
 app.use('/', routes);
 app.use('/quiz', quiz);
@@ -50,6 +59,7 @@ app.use('/login', login);
 app.use('/logout', logout);
 app.use('/signup', signup);
 app.use('/profile', profile);
+app.use('/updateScore', updateScore);
 
 
 //require('./app/routes.js')(app, passport); WHAT SHOulD THIS LINE BE IN my app?!!?!?!?

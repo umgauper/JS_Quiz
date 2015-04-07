@@ -2,12 +2,12 @@ var app = angular.module('ang_app', [])
     .controller('quizController', ['$scope', '$http', function($scope, $http) {
         var url = 'https://api.mongolab.com/api/1/databases/quiz_question_sets/collections/questionSets?apiKey=iMg3sLxSc8OjLTCX7C3f_bEQse5TL74o';
 
-        $http.get(url).success(function(data) { // Add error handling for  when database connection doesn't work!
+        $http.get(url).success(function(data) { //TODO: Add error handling for  when database connection doesn't work!
             $scope.questionSets = data
         });
 
-        var answers = {};
 
+        var answers = {};
 
         function updateAnswers() {
             answers[$scope.i] = $('input:checked').val();
@@ -40,7 +40,8 @@ var app = angular.module('ang_app', [])
                 }
                 $scope.i++;
 
-                //TODO: add writing the score to the database ... do an app.post?? how to organize?? is username stored as a cookie when user logs in? with express-session??
+                $http.post('/updateScore', {"score": $scope.score});
+
             } else {
                 $('#error').show();
             }
