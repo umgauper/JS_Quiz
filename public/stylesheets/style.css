@@ -7,9 +7,40 @@ body {
 a {
   color: #00B7FF;
 }
-div.form {
+
+form {
   background-color: white;
+  padding: 20px;
+  border: 10px solid transparent;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  margin-bottom: 10px;
 }
+
+.form-headline {
+  background-color: #EDECD0;
+  border: 10px solid transparent;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+/* quiz styles */
+
+div.quiz {
+  /*height: 400px;        adding height pushes answers out of div...what?? but I need to set a height so buttons don't move... */
+  /*position: relative;*/
+  background-color: white;
+  /*padding: 5% 10% 0 10%;*/
+  border: 10px outset transparent;
+  border-radius: 10px;
+}
+
+.quiz hr {
+  height: 10px;
+}
+
 #error {
   color: red;
   display: none;
@@ -19,10 +50,41 @@ div.form {
   visibility: hidden;
 }
 
-h3.question {
-  height: 50px;
+h4.question {
+  height: 100%;
+
 }
 
 input[type="radio"] {
   margin-right: 10px !important;
+}
+
+.quiz p {
+  text-align: right;
+}
+
+.prev, .next, .calculate {
+  color: white;
+  font-weight: bold;
+}
+
+.prev, .next {
+  background-color: #426A3E;
+  margin-top: 150px;
+  height: 50px;
+  width: 5px;
+}
+
+.prev {
+  position: absolute;
+  margin-left: 60%;
+  z-index: 10000;
+}
+
+.next {
+  margin-left: -40%;
+}
+
+.calculate {
+  background-color: #EF5B00;
 }
