@@ -64,6 +64,7 @@ var app = angular.module('ang_app', [])
 
         $scope.prev = function() {
             $('#error').hide();
+            updateAnswers();
             if($scope.i > 0) {
                 $scope.i--;
                 loadStoredAnswer();

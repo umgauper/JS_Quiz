@@ -1,0 +1,7 @@
+extends layout
+block content
+   table
+        each val in doc
+            tr
+                td= val.local.username
+                td= val.local.score

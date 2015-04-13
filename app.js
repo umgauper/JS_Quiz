@@ -52,6 +52,7 @@ var logout = require('./routes/logout');
 var profile = require('./routes/profile');
 var signup = require('./routes/signup');
 var updateScore = require('./routes/updateScore');
+var rankings = require('./routes/rankings');
 
 app.use('/', routes);
 app.use('/quiz', quiz);
@@ -60,7 +61,7 @@ app.use('/logout', logout);
 app.use('/signup', signup);
 app.use('/profile', profile);
 app.use('/updateScore', updateScore);
-
+app.use('/rankings', rankings);
 
 //require('./app/routes.js')(app, passport); WHAT SHOulD THIS LINE BE IN my app?!!?!?!?
 
