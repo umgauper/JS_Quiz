@@ -49,7 +49,6 @@ var routes = require('./routes/index');
 var quiz = require('./routes/quiz');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
-var profile = require('./routes/profile');
 var signup = require('./routes/signup');
 var updateScore = require('./routes/updateScore');
 var rankings = require('./routes/rankings');
@@ -59,7 +58,6 @@ app.use('/quiz', quiz);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/signup', signup);
-app.use('/profile', profile);
 app.use('/updateScore', updateScore);
 app.use('/rankings', rankings);
 

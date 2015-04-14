@@ -29,10 +29,7 @@ form {
 /* quiz styles */
 
 div.quiz {
-  /*height: 400px;        adding height pushes answers out of div...what?? but I need to set a height so buttons don't move... */
-  /*position: relative;*/
   background-color: white;
-  /*padding: 5% 10% 0 10%;*/
   border: 10px outset transparent;
   border-radius: 10px;
 }
@@ -42,8 +39,8 @@ div.quiz {
 }
 
 #error {
-  color: red;
   display: none;
+  margin-top: 5%;
 }
 
 .vis-hidden {
@@ -51,8 +48,7 @@ div.quiz {
 }
 
 h4.question {
-  height: 100%;
-
+  height: 30px;
 }
 
 input[type="radio"] {
@@ -61,6 +57,10 @@ input[type="radio"] {
 
 .quiz p {
   text-align: right;
+}
+
+div.answers input {
+  margin-left: 10%;
 }
 
 .prev, .next, .calculate {
@@ -77,14 +77,37 @@ input[type="radio"] {
 
 .prev {
   position: absolute;
-  margin-left: 60%;
+  margin-left: 80%;
   z-index: 10000;
 }
 
 .next {
-  margin-left: -40%;
+  margin-left: -80%;
 }
 
 .calculate {
   background-color: #EF5B00;
+  margin-top: 10%;
+}
+
+/* Rankings Styles */
+
+table {
+  margin-top: 10%;
+  background-color: white !important;
+  border-radius: 10px;
+}
+
+thead {
+  background-color: #4F633D;
+  font-size: 150%;
+}
+
+tbody {
+  font-size: 110%;
+}
+
+td.score {
+  font-weight: bold;
+  /*text-align: center;*/
 }
