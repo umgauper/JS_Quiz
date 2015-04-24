@@ -10,6 +10,7 @@
 * add home page with links to signup and login pages
 * set up as heroku app (this will probably be tricky and take awhile...)
 * add 8 questions to DB for total of 10 questions
+* restrict route to quiz to logged in users only!
 
 ##maybe
 * add angular controller to highlight logged-in user's rank in the table

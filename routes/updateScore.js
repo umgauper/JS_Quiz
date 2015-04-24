@@ -5,7 +5,7 @@ router.post('/', function(req, res) {
     var user = req.user.local.username; //the logged in user
     var score = req.body.score;
     var query = {"local.username": user};
-    var update = {$set: {"local.score": score}}; // just testing to see if update works ...
+    var update = {$set: {"local.score": score}};
     var option = {upsert: true};
 
     req.db.collection('users').update(query, update, option, function(err) {

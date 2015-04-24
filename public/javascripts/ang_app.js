@@ -1,13 +1,15 @@
 var app = angular.module('ang_app', [])
     .controller('quizController', ['$scope', '$http', '$location', '$window', function($scope, $http, $location, $window) {
+
         var url = 'https://api.mongolab.com/api/1/databases/quiz_question_sets/collections/questionSets?apiKey=iMg3sLxSc8OjLTCX7C3f_bEQse5TL74o';
+
+        var answers = {};
 
         $http.get(url).success(function(data) { //TODO: Add error handling for  when database connection doesn't work!
             $scope.questionSets = data
         });
 
 
-        var answers = {};
 
         function updateAnswers() {
             answers[$scope.i] = $('input:checked').val();
@@ -40,12 +42,8 @@ var app = angular.module('ang_app', [])
                         }
                     }
                 $scope.i++;
-                var host = $location.host();
-                var port = $location.port();
 
                 $http.post('/updateScore', {"score": $scope.score}); //save user's score to database
-
-                $window.location.href = host + ':' + port + '/rankings';
 
             } else {
                 $('#error').show();
@@ -76,7 +74,8 @@ var app = angular.module('ang_app', [])
             }
         };
 
-        $('input[type=radio]').on('click', function() {
+        $('input[type=radio]').on('click', function() {  //Hide error message when an answer is chosen.
             $('#error').hide();
         });
+
     }]);

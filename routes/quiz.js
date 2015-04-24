@@ -6,7 +6,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    res.render('quiz');
+    if (req.user) {
+        res.render('quiz');
+    } else {
+        res.redirect('/login');
+    }
 });
 
 module.exports = router;

@@ -94,11 +94,5 @@ app.use(function(err, req, res, next) {
     });
 });
 
-function isLoggedIn(req, res, next) { // move to its own module?
-    if (req.isAuthenticated())
-        return next();
-
-    res.redirect('/');
-}
 
 module.exports = app;

@@ -26,7 +26,7 @@ form {
   display: inline-block;
 }
 
-/* quiz styles */
+/* Quiz styles */
 
 div.quiz {
   background-color: white;
@@ -90,6 +90,10 @@ div.answers input {
   margin-top: 10%;
 }
 
+div.score {
+  text-align: center;
+}
+
 /* Rankings Styles */
 
 table {
@@ -99,7 +103,7 @@ table {
 }
 
 thead {
-  background-color: #4F633D;
+  background-color: #728e57;
   font-size: 150%;
 }
 
@@ -109,5 +113,4 @@ tbody {
 
 td.score {
   font-weight: bold;
-  /*text-align: center;*/
 }
